@@ -1,14 +1,15 @@
 function matrixProduct(mat1, mat2){
-    
+    //row-i
+    //column-j
    let result = [];
-        for(let row = 0; row < mat1.length; row++){
-            result[row] = [];
-            for(let col = 0; col < mat2[0].length; col++){
+        for(let i = 0; i < mat1.length; i++){
+            result[i] = [];
+            for(let j = 0; j < mat2[0].length; j++){
                 let sum = 0;
                 for (let k = 0; k < mat1[0].length; k++) {
-                    sum += mat1[row][k] * mat2[k][col];
+                    sum += mat1[i][k] * mat2[k][j];
                 }
-                result[row][col] = sum;
+                result[i][j] = sum;
             }     
         }
         console.table(result);
@@ -19,25 +20,18 @@ function matrixProduct(mat1, mat2){
 
 function sumOfMatrices(mat1, mat2){
 
-    if(mat1.length !== mat2.length || mat1[0].length !== mat2[0].length){
-        console.log("The sum is undefined");
-    }
-    else{
-        let result = [];
-        for(let row = 0; row < mat1.length; row++){
-            result[row] = [];
-            for(let col = 0; col < mat1[0].length; col++){
-                result[row][col] = mat1[row][col]+mat2[row][col];
+   let result = [];
+        for(let i = 0; i < mat1.length; i++){
+            result[i] = [];
+            for(let j = 0; j < mat1[0].length; j++){
+                result[i][j] = mat1[row][j]+mat2[i][j];
             }
         }
         console.table(result);
         return result;
-    }
+    
 }
 
-
-
-// Exercise 3: Sum of Each Row of a Matrix
 
 function sumOfArray(arr){
     let sum = 0;
@@ -50,8 +44,8 @@ function sumOfArray(arr){
 function sumOfEachRow(mat){
     
     let result = [];
-    for(let row = 0; row < mat.length; row++){
-        result[row] = sumOfArray(mat[row]);
+    for(let i = 0; i < mat.length; i++){
+        result[i] = sumOfArray(mat[i]);
     }
     console.table(result);
     return result;
@@ -59,18 +53,18 @@ function sumOfEachRow(mat){
 
 
 
-function wordCount(sen){
+function wordCount(text){
     
     let count = 0;
-    for(let i = 0; i < sen.length; i++){
-        if(sen[i] === " " && sen[i+1] !== " "){
+    for(let i = 0; i < text.length; i++){
+        if(text[i] === " " && text[i+1] !== " "){
             count++;
         }
     }
-    if(sen[sen.length-1] !== " "){
+    if(text[text.length-1] !== " "){
         count++;
     }
-    if(sen[0] === " "){
+    if(text[0] === " "){
         count--;
     }
     console.log(`There are ${count} words in this sentence.`);
@@ -78,17 +72,15 @@ function wordCount(sen){
 }
 
 
-// Exercise 5: String Trim
-
-function trimTheString(str){
+function trimTheString(text){
     
     let count1 = 0;
-    for(let i = 0; i < str.length; i++){
-        if(str[i] !== " "){
+    for(let i = 0; i < text.length; i++){
+        if(text[i] !== " "){
             break;
         }
         else{
-            if(str[i] === " " && str[i+1] === " "){
+            if(text[i] === " " && text[i+1] === " "){
                 count1++;
             }
         }
@@ -97,12 +89,12 @@ function trimTheString(str){
     count1++;
        
     let count2 = 0;
-    for(let j = str.length-1; j >= 0; j--){
-        if(str[j] !== " "){
+    for(let j = text.length-1; j >= 0; j--){
+        if(text[j] !== " "){
             break;
         }
         else{
-            if(str[j] === " " && str[j-1] === " "){
+            if(text[j] === " " && text[j-1] === " "){
                 count2++;
             }
         }
@@ -110,12 +102,12 @@ function trimTheString(str){
     }
     count2++;
        
-    let res = "";
-    for(i = count1; i < str.length-count2; i++){
-        res += str[i];
+    let result = "";
+    for(i = count1; i < text.length-count2; i++){
+        result += text[i];
     }
-    console.log(res);
-    return res;
+    console.log(result);
+    return result;
 }
 
 
@@ -128,3 +120,7 @@ module.exports = {
 }
 
 matrixProduct ([[1,2], [3,5]], [[1,2], [3,5]])
+sumOfMatrices([[1,2], [3,5]], [[1,2], [3,5]])
+sumOfArray([[1,2], [3,5]], [[1,2], [3,5]])
+trimTheString(text)
+trimTheString(text)
