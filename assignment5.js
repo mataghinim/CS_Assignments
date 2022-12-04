@@ -24,7 +24,7 @@ function sumOfMatrices(mat1, mat2){
         for(let i = 0; i < mat1.length; i++){
             result[i] = [];
             for(let j = 0; j < mat1[0].length; j++){
-                result[i][j] = mat1[row][j]+mat2[i][j];
+                result[i][j] = mat1[i][j]+mat2[i][j];
             }
         }
         console.table(result);
